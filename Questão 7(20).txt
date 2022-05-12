@@ -1,0 +1,18 @@
+/* Q.7) Intuito: Distinguir as expressões válidas das invalidas justificando cada uma e considerando a declaração 'int mat[4], *p,x;'.
+
+Expressões: 
+i) p = mat + 1;
+ii) p = mat++;
+iii) p = ++mat;
+iv) x = (*mat)++;
+
+
+Resposta:
+Por incrível que pareça, todas as expressões são válidas; justificando o porque da validação temos que: 
+just.i) Essa expressão demonstra que o valor do vetor mat será armazenado no ponteiro apresentado e mostrará o valor do 2° elemento, considerando a declaração do enunciado. 
+just.ii) Essa expressão demonstra que o ponteiro irá armazenar o vetor mat e apresentará o primeito elemento deste. 
+just.iii) O que a iii possui de diferente da ii é somente a posição dos '++', portanto, ii e iii são equivalentes, porém, mostradas de formas distintas. 
+just.iv) Essa expressão demonstra que a variável inteira x irá armazenar o conteúdo do primeiro elemento do vetor mat.
+
+Sendo assim, estão demonstradas as justificativas para todas as expressões, fazendo jus a validez dita no início da resposta. 
+*/  
