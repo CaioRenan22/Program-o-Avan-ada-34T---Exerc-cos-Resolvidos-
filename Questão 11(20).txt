@@ -1,0 +1,28 @@
+/* Q.11) Intuito: Indentificar quais comandos são válidos ou inválidos a partir das seguintes declarações: 
+
+float aloha[10]
+coisas[10][5] 
+*pf, value = 2.2;
+int i=3;
+
+Abaixo, temos os comandos para a análise: 
+
+i) aloha[2] = value;
+ii) scanf("%f", &aloha);
+iii) aloha = value;
+iv) printf("%f", aloha);
+v) coisas[4][4] = aloha[3];
+vi) coisas[5] = aloha;
+vii) pf = value;
+viii) pf = aloha;
+
+Respostas: 
+i) É válido, pois o terceiro valor do aloha irá receber o valor do value.
+ii) É válido, mas, o valor lido pela máquina só será atribuído ao primeiro elemento do vetor aloha. 
+iii) É válido, pois a sintaxe está correta e o vetor aloha irá receber o valor de value.
+iv) É inválido, pois a impressão dos valores de um vetor deve ser feita por elemento.
+v) É válido, pois o elemento da quarta linha e quarta coluna ([4][4]) da matriz 'coisas' irá receber o valor do quarto elemento do vetor aloha. 
+vi) É inválido, porque a atribuição do valor da matriz está apenas com um valor, além de que o elemento atribuído pelo vetor não fora indicado. 
+vii) É inválido, a falta de informações é clara, pois não há elemento de referenciação na operação de elementos. 
+viii) É válido, pois quando tratamos de ponteiros para vetores é totalmente possível realizar a referenciação dos elementos do vetor sem o e comercial (&). Lembrando que não temos um caso que a volta é verdadeira, para fazermos o contrário, o que chamamos de desreferenciação, devemos adicionar o asterístico (*), sem o asterístico, nossa representação estará errada. 
+*/
