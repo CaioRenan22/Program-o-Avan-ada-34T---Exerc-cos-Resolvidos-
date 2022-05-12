@@ -1,0 +1,51 @@
+/*Q.12) Intuito: Pesquisar o que é um ponteiro para função e exemplificar num pequeno programa o uso deste determinado recurso. 
+
+O uso de ponteiros para funções em C, serve principalmente para definir em tempo de execução, qual função será executada, sem a necessidade de escrever o nome da função, de forma explícita naquele ponto do código. Ou seja, são argumentos para outras funções, sendo que a função apontada pode ser chamada a partir do ponteiro que lhe referencia. Pode ser usada de diversas formas, uma delas é passar ponteiros como parâmetros de função, o que representarei fazendo uso de um programa, que será representado abaixo.*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+ void testeVariável (int x);
+ void testePonteiro (int *pX);
+ int teste = 1;
+ int *pTeste = &teste;
+
+ testeVariável (teste);            // Nesta linha, quanto eu passo para a minha função a variável teste, o programa pula lá para a linha 21-24, mudando o valor do x;
+ testePonteiro(pTeste);           // Não usamos asterístico aqui pq passamos o endereço de memória. 
+   
+
+ printf("%i\n", teste);
+  return 0;
+}
+  void testeVariável (int x)
+ {
+   ++x;
+ }
+   void testePonteiro (int *pX)
+  {
+    ++*pX; 
+  }
+  #include <stdio.h>
+#include <stdlib.h>
+
+int primo (int a)
+{
+	int divisor=0, aux=0;
+	for(divisor = 1; divisor <= a; divisor++)
+    {
+      if(a % divisor == 0)
+      {
+			  aux=aux+1;
+      }
+	  }
+  if (aux == 2)
+   {
+ printf("Número digitado por você: %i. \n\nLogo, diante do número digitado, chegamos a uma conclusão de que o número digitado é primo. ", a);
+   }
+ else
+   {
+			printf("Número digitado por você: %i. \n\nLogo, diante do número digitado, chegamos a uma conclusão de que o número digitado não é primo.", a);
+    }
+}
