@@ -1,0 +1,55 @@
+/* Q.14) Intuito: Reimplementar o programa da questão 13 utilizando a função qsort() e explicar o que faz cada linha do código.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int comparador(const void *num1, const void *num2)              // Implementação de um inteiro com o nome de comparador.
+{    
+	if (*(float*)num1 > *(float*)num2)
+  {
+    	return 1;
+  } else if (*(float*)num1 < *(float*)num2)
+  {
+    	return -1;
+  } else
+     {
+    	return 0;
+      }
+}
+
+int main ()
+{
+	float *vetor;       
+	int quant_numeros, i, j, aux; 
+
+	printf("Digite a quantidade de números para a leitura: ");
+	scanf("%d", &quant_numeros);                          // Quantidade de números desejados.
+
+	vetor = (float *) malloc(quant_numeros * sizeof(float));
+	
+	for(i = 0;i < quant_numeros;i++)          // Bloco responsável pela alocação dos números nos vetores e pela digitação dos números na tela. 
+  {                       
+		printf("\nDigite um número para o vetor:");        
+		scanf("%f", &vetor[i]);	
+	}
+	
+	system("clear");
+	printf("Valores declarados: \n");                  // Imprime na tela quais foram os números que você declarou na sessão do programa. 
+	
+	for(i = 0;i < quant_numeros;i++)
+  {
+		printf("%f , ",vetor[i]);	
+	}
+	
+	printf("\n\nValores em ordem crescente: \n");      // Imprime os valores declarados na ordem crescente.                  
+	qsort(vetor,quant_numeros, sizeof(float),comparador);      // qsort usado para ordenar elementos dentro do vetor.
+	
+	for(i = 0;i < quant_numeros;i++)
+  {
+		printf("%f , ",vetor[i]);	
+	}
+				
+	free(vetor);                                  // Libera o malloc da linha 26. 
+	return 0;
+}
