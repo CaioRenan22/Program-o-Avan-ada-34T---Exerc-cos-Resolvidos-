@@ -1,0 +1,11 @@
+/* Q.6) Intuito: Saber quais das seguintes expressões referenciam o valor do terceiro elemento do vetor, assumindo que 'pulo[]' é um vetor do tipo inteiro.
+
+Expressões:
+i) *(pulo + 2);
+ii) *(pulo + 4);
+iii) pulo + 4;
+iv) pulo + 2;
+
+Resposta:  
+Levando em consideração as expressões, a única expressão que referencia o valor do terceiro elemento do vetor é a expressão i.
+*/  
