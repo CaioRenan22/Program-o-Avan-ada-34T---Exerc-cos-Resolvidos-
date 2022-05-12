@@ -1,0 +1,39 @@
+/* Q.1) Intuito: Determinar os valores das seguintes expressões: p == &i; *p - *q; **&p; 3 - *p/(*q) + 7;
+  
+Entendimento:
+i) p == &i: Quer saber em qual endereço da memória da máquina o nosso i (definido por 3) está localizado.
+ii) *p - *q: Operação entre ponteiros, na qual subtrairá o valor definido do ponteiro p menos o valor definido do ponteiro q. 
+iii) **&p: Quer saber qual o ponteiro para ponteiro de um endereço de ponteiro. 
+iv) 3 - *p/(*q) + 7: Operações entre ponteiros, na qual irá subtrair o resultado da divisão dos dois ponteiros de 3 e depois somar com 7. 
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main() 
+{
+ int i;
+  i = 3;
+ int j;
+  j = 5;
+ int *p; 
+ int *q;
+ p = &i;
+ q = &j;
+
+ printf("Sabendo que");
+ printf(" i = %i e", *p);
+ printf(" j = %i", *q); 
+
+ printf("\n\nO endereço da memória da máquina que o nosso i está localizado, pedido pela expressão p == &i é: %i.\n", p);
+  
+ printf("\nA operação entre ponteiros na qual subtrairá os valores definidos é = %i.\n", *p - *q);
+
+ printf("\nPonteiro para ponteiro de um endereço de ponteiro é = %i\n", **&p);
+
+ printf("\nO resutado das operações entre ponteiros, na qual irá subtrair o resultado da divisão dos dois ponteiros de 3 e depois somar com 7 é = %i.\n", 3 - *p/(*q) + 7);
+
+ printf("\n");
+  return 0;
+}
