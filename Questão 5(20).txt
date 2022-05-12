@@ -1,0 +1,35 @@
+/* Q.5) Intuito: Verificar se as respostas obtidas diante da compilação e execução do programa são as esperadas, ou seja, as que foram determinadas inicialmente do que seria mostrado. 
+Observação: As respostas estão localizadas a partir da linha 20-21 deste código. 
+*/  
+#include <stdio.h>
+#include <stdlib.h>
+int main(void){
+  float vet[5] = {1.1,2.2,3.3,4.4,5.5};
+  float *f;
+  int i;
+  f = vet;
+  printf("contador/valor/valor/endereco/endereco");
+  for(i = 0 ; i <= 4 ; i++){
+  printf("\ni = %d",i);
+  printf("vet[%d] = %.1f",i, vet[i]);
+  printf("*(f + %d) = %.1f",i, *(f+i));
+  printf("&vet[%d] = %X",i, &vet[i]);
+  printf("(f + %d) = %X",i, f+i);
+  }
+}
+/*
+      Resposta: 
+Determinado: 
+i) contador = 0; valor = 1.1; valor=1.1; endereço(f+0) = endereço demonstrado: (6E814F00);
+ii) contador = 1; valor = 2.2; valor=2.2; endereço(f+1) = endereço demonstrado: (6E814F04);
+iii) contador = 2; valor = 3.3; valor=3.3; endereço(f+2) = endereço demonstrado: (6E814F08);
+iv) contador = 3; valor = 4.4; valor=4.4; endereço(f+3) = endereço demonstrado: (6E814F0C);
+v) contador = 4; valor = 5.5; valor=5.5; endereço(f+4) = endereço demonstrado: (6E814F10);
+
+Mostrado pelo programa: 
+i = 0vet[0] = 1.1*(f + 0) = 1.1&vet[0] = 6E814F00(f + 0) = 6E814F00 (Números finais são equivalentes ao endereço do primeiro elemento do vetor e ao endereço do elemento guardado no ponteiro, respectivamente).
+i = (contador = 1) 1vet[1] = 2.2*(f + 1) = 2.2&vet[1] = 6E814F04(f + 1) = 6E814F04 (Números finais são equivalentes ao endereço do segundo elemento do vetor e ao endereço do elemento guardado no ponteiro, respectivamente)).
+i = (contador = 2) 2vet[2] = 3.3*(f + 2) = 3.3&vet[2] = 6E814F08(f + 2) = 6E814F08 (Números finais são equivalentes ao endereço do terceiro elemento do vetor e ao endereço do elemento guardado no ponteiro, respectivamente)).
+i = (contador = 3) 3vet[3] = 4.4*(f + 3) = 4.4&vet[3] = 6E814F0C(f + 3) = 6E814F0C (Números finais são equivalentes ao endereço do quarto elemento do vetor e ao endereço do elemento guardado no ponteiro, respectivamente)).
+i = (contador = 4) 4vet[4] = 5.5(f + 4) = 5.5&vet4] = 6E814F10(f +4) = 6E814F10 (Números finais são equivalentes ao endereço do quinto elemento do vetor e ao endereço do elemento guardado no ponteiro, respectivamente).
+*/
