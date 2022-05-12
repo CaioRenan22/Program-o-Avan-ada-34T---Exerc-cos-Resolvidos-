@@ -1,0 +1,14 @@
+/* Q.3) Intuito: Saber quais das seguintes expressões de atribuições são ilegais, sabendo que i e j são variáveis inteiras e p e q ponteios para int.
+
+i) p = i;
+ii) q = &j;
+iii) p = &*&i;
+iv) i = (*&)j;
+v) i = *&j;
+vi) i = *&*&j;
+vii) q = *p;
+viii) i = (*p)++ + *q;
+
+Resposta: 
+i, iv, e vii (Ilegais) 
+*/
