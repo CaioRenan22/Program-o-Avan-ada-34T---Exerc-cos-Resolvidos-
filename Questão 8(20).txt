@@ -1,0 +1,32 @@
+/*Q.8) Intuito: Saber o que os seguintes programas da lingagem C fazem.
+
+i)
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+  int vet[] = {4,9,13};
+  int i;
+  for(i=0;i<3;i++){
+  printf("%d ",*(vet+i));
+  }
+}
+
+
+Esse primeiro programa imprime o conteúdo dos elementos do vetor 'vet[]' a partir de um laço for. (Conteúdo mostrado foram os números: 4,9 e 13).
+
+
+
+ii)
+
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+  int vet[] = {4,9,13};
+  int i;
+  for(i=0;i<3;i++){
+  printf("%X ",vet+i);
+  }
+}
+
+Já o segundo programa imprime o endereço hexadecimal de cada elemento, ou seja, onde cada elemento de determinado vetor está alocado na memória da máquina. 
+*/
