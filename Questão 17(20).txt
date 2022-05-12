@@ -1,0 +1,67 @@
+/* Q.17) Intuito: Escrever uma função que escreve em um vetor a soma dos elementos correspondentes de outros dois vetores, sendo que o tamanho dos vetores devem ser fornecidos pelo o usuário.
+
+Por exemplo,
+se o primeiro vetor contiver os elementos 1, 3, 0 e -2, e o segundo vetor contiver os elementos 3,
+5, -3 e 1, o vetor de soma terá valores resultantes iguais a 4, 8, -3 e -1. A função deve receber 4
+argumentos: os nomes dos três vetores e o número de elementos presentes em cada vetor.
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float soma_vetores(float *vetor1,float *vetor2,float *vetor_soma,float quant_numeros)
+{
+	int j;
+	for(j = 0;j < quant_numeros;j++)
+  {
+		vetor_soma[j] = vetor1[j] + vetor2[j];
+	}
+	
+	for(j = 0;j < quant_numeros; j++)
+  {
+		printf("%f  ", vetor_soma[j]);
+	}
+} 
+int main()
+{
+	float *vetor1, *vetor2, *vetor_soma, *parametro;
+	int quant_numeros, i;
+	
+	printf("Digite a quantidade de números dos vetores 1 e 2: ");
+	scanf("%d",&quant_numeros);
+	
+	vetor1 = (float *) malloc(quant_numeros * sizeof(float));
+	vetor2 = (float *) malloc(quant_numeros * sizeof(float));
+	vetor_soma = (float *) malloc(quant_numeros * sizeof(float));
+	
+	for(i = 0;i < quant_numeros;i++)
+  {
+		printf("Digite o %dº número do vetor 1: ",i + 1);
+		scanf("%f", &vetor1[i]);		
+	}
+	
+	for(i = 0;i < quant_numeros;i++)
+  {
+		printf("Digite o %dº número do vetor 2: ",i + 1);
+		scanf("%f", &vetor2[i]);		
+	}
+			
+	system("clear");
+	printf("Valores atribuídos ao vetor 1: \n");
+	for(i = 0; i < quant_numeros; i++)
+  {
+		printf("%f  ",vetor1[i]);
+	}
+	printf("\nValores atribuídos ao vetor 2: \n");
+	for(i = 0; i < quant_numeros; i++)
+  {
+		printf("%f  ",vetor2[i]);
+	}
+printf("\n\nVetor soma (produzida pela soma do vetor 1 + vetor 2): \n");
+soma_vetores(vetor1 , vetor2 , vetor_soma  ,quant_numeros); 
+free(vetor1);         // Libera o que está alocado no malloc 'vetor1'.
+free(vetor2);         // Libera o que está alocado no malloc 'vetor2'.
+free(vetor_soma);	    // Libera o que está alocado no malloc 'vetor_soma'.
+return 0;
+}
