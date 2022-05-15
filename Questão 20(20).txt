@@ -1,0 +1,32 @@
+/* Q.20) Intuito: Propor, com base no programa-exemplo da questão anterior, uma apicação que permita comparar o desempenho das funções tradicionais de alocação/liberação de memória da linguagem c (malloc() e free()) com as funções de gerenciamento de memória escolhidas. A aplicação deverá ser capaz de ressaltar possíveis atrasos de tempo provenientes do coletor de lixo utilizado. 
+*/  
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <gc/gc.h>
+#include <time.h>
+
+int main()
+{
+    int i;
+    const int size = 10000000;
+    clock_t t, t1;
+    t = clock();
+    GC_INIT();
+    for (i = 0; i < size; ++i){
+        int **p = GC_malloc(sizeof(int));
+    }
+    t = clock() - t;
+    printf("%f segundos", ((float)t)/CLOCKS_PER_SEC);
+    t1 = clock();
+    for (i = 0; i < size; ++i)
+    {
+      int **q = malloc(sizeof(int));
+    free(q);
+    }
+
+    t1 = clock() - t1; 
+    printf("%f segundos", ((float)t1)/CLOCKS_PER_SEC);
+    return 0;
+}
