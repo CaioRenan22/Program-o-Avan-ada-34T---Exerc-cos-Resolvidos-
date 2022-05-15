@@ -1,0 +1,28 @@
+/* Q.19) Intuito: Pesquisar na internet sobre o uso da biblioteca libGC, que implementa um coletor de lixo na linguagem C. O processo de instalaçao dessa biblioteca em sistemas Windows pode ser um pouco trabalhoso. Entretanto, em sistema Unix, a instalação é bem simples, de sorte que se recomenda a resolução deta questão em uma máquia, por exemplo, com Linux instalado. Caso seja usuário Windows e não queira instalar sistemas alternativos em seu computador, use uma ferramenta de virtualização (ex: VirtualBox) para instalar e executar o Linux sem alterar a instalação original da sua máquina. Sabendo de todos esses dados, prepare um pequeno programa-exemplo demonstrando como utilizar a biblioteca citada. 
+
+Referência da Pesquisa sobre a biblioteca libGC: https://linux.die.net/man/1/libgc
+*/  
+
+#include "gc.h"                    // Biblioteca Linux
+#include <assert.h>                //Esta biblioteca serve para implementar ajuda na detecção de erros em versões de depuração de programas.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+  int i;
+  const int size = 10000000;
+  GC_INIT();
+  for (i = 0; i < size; ++i)
+  {
+   int **p = GC_malloc(sizeof *p);
+   int *q = GC_malloc_atomic(sizeof *q);
+   assert(*p == 0);
+   *p = GC_realloc(q, 2 * sizeof *p);
+    if (i == size-1)
+    {
+      printf("Heap size = %zu\n", GC_get_heap_size());
+    }
+  }
+  return 0;
+}
