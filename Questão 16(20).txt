@@ -1,0 +1,57 @@
+/*Q.16)Intuito: Procurar na internet mecanismos que possibilitem medir tempos de execução de rotinas computacionais. Utilizando os conhecimentos obtidos devido a pesquisa, meça os tempos de execução de implementações feitas para os dois problemas de ordenação anteriores e compare os resultados.
+
+Resposta: 
+Diante das pesquisas sobre as funções, com o objetivo de medir o tempo de execução operacional das funções de ordenação, utilizamos a biblioteca "time.h" que possui as seguintes funções: clock(), que grava em uma determinada variável o tempo que foi passado até o momento da gravação durante o compilar e executar do programa. Além da função cloc() também foi usada a função rand() para definir um número aleatório para cada posição do vetor para que o estudo pedido fosse executado com eficiência. 
+
+Observação: O código usado foi o da questão 13 com a adição das funções já informadas de suas funcionalidades anteriormente: clock() e rand(). 
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main (void)
+{
+	float *vetor;
+	int quant_numeros, i, j, aux; 
+	clock_t tempo;
+	clock_t tempo_inicial;
+	clock_t tempo_final;
+	printf("Digite a quantidade de números para a leitura: ");
+	scanf("%d", &quant_numeros);
+
+	vetor = (float *) malloc(quant_numeros * sizeof(float));         //Alocação dinâmica de memória, dependendo do requisito do vetor.
+	system("clear");
+	printf("Números declarados: \n");
+	for(i = 0;i < quant_numeros;i++)
+  {
+		vetor[i] = rand();                                       //Cada posição do vetor vai receber um número aleatório devido a função rand().
+		printf("%f\n",vetor[i]);	
+	}
+	tempo = clock();
+	tempo_inicial = clock();
+	for(i = 0;i < quant_numeros;i++)
+  {
+		for(j = i + 1;j < quant_numeros;j++)
+    {
+			if(vetor[i] > vetor[j])
+      {
+				aux = vetor[j];
+				vetor[j] = vetor[i];
+				vetor[i] = aux;	
+			}
+		}
+	}
+	tempo_final = clock();
+	tempo = clock() - tempo;                         //Recebe intervalos de tempo.
+	printf("\n Números em ordem crescente: \n");
+	for(i = 0;i < quant_numeros;i++)                //Imprime todos os elementos do vetor apontado. 
+  {
+		printf("%f\n",vetor[i]);	
+	}
+	printf("\nInstante inicial: %lf segundos.\n",((double)tempo_inicial)/(CLOCKS_PER_SEC));   //Imprime o instante inicial de operação.
+	printf("\nInstante final: %lf segundos.\n",((double)tempo_final)/(CLOCKS_PER_SEC));     //Imprime o instante final de operação.
+	printf("%lf segundos.\n",((double)tempo)/((CLOCKS_PER_SEC)));          //Imprime o intervalo de tempo que dura a operação.			
+	free(vetor);
+	return 0;
+}
