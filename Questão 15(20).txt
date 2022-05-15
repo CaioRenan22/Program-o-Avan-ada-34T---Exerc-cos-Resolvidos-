@@ -1,0 +1,40 @@
+/* Q.15) Intuito: Utilizar a ideia do ponteiro para função qsort() para implementar a sua própria função de ordenação. Para isso, a função deve receber, entre outros argumentos, um ponteiros para a função de comparação.
+
+Além deste programa, entenda um pouco mais para que serve o qsort() no seguinte site: http://www.cplusplus.com/reference/cstdlib/qsort/
+*/  
+#include <stdlib.h>
+#include <stdio.h>
+
+int compar(const void * a, const void * b)
+{
+return (int) (*(int *)a - * (int *)b);
+}
+int main()
+{
+  float *v;
+  int n;
+  printf("Quantidade de termos do vetor: ");         // Recebe o tamanho do vetor.
+  scanf ("%i", &n); 
+  v = malloc(n*sizeof(float));           // Alocado o espaço para um bloco de bytes na memória da máquina. 
+  printf("\n");
+  for(int i = 0; i<n; i++)
+  {
+    printf("Informe o determinado número: ");
+    scanf("%f", &v[i]);
+  } 
+    printf("\nPosição e valor dos vetores digitados:");
+    for(int i =0; i < n; i++)
+    {
+      printf("\n\nPosição: %x \nValor:%f ", v+i, *(v+i));
+    }
+    qsort(v, n, sizeof(float), compar);
+  printf("\n\n------------------------------------");
+    printf("\n\nEndereço e conteúdo do vetor de forma ordenada: ");       //Mostra o endereço e o conteúdo do vetor, mas agora, de forma ordenada. 
+    for(int i = 0; i < n; i++)
+    {
+      printf("\n\nEndereço: %X \nValor:%f ", v+i, *(v+i));
+      printf("|");
+    }
+    free(v);
+    return (0);
+}
