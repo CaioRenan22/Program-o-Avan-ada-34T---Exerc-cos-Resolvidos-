@@ -10,7 +10,7 @@ Observação: O código usado foi o da questão 13 com a adição das funções 
 #include <stdlib.h>
 #include <time.h>
 
-int main (void)
+int main ()
 {
 	float *vetor;
 	int quant_numeros, i, j, aux; 
