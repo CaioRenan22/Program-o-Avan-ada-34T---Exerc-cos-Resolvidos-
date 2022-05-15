@@ -1,0 +1,100 @@
+/* Q.18) Intuito: Criar uma função capaz de realizar a multiplicação matricial da forma C=A B. Essa função deve receber 6(seis) argumentos: Os ponteiros para as matrizes A, B e C, o número de linhas e colunas de A e o número de colunas de B (assuma ue o número de coluna de A é igual ao número de linhas de B). O resultado da multiplicação deve ficar armazenado em C. Dessa forma, crie um programa capaz de utilizar a função de multiplicação e imprimir as três matrizes. A função criada para a multiplicação não deve realizar nenhum tipo de saída de dados no terminal. 
+*/  
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void multimatriz(int **m1, int **m2, int **m3, int nlin, int ncol, int ncolB)
+{
+
+for (int lin = 0; lin<nlin; lin++)
+{
+  for (int col =0; col<nlin; col++)
+  {
+    for(int z = 0; z<ncol; z++)
+    {
+     m3[lin][col] = m1[lin][z]*m2[z][col] + m3[lin][col];
+    }
+  }
+}
+}
+
+int main(void) 
+{
+  int **A,**B,**C;
+  int linA = 2, colA = 3, colB = 2;
+
+A = malloc(linA*sizeof(int*));
+A[0] = malloc(colA*linA*sizeof(int));
+for (int w = 1; w<linA; w++)
+{
+  A[w] = A[w-1] + colA;
+}
+
+B = malloc(colA*sizeof(int*));
+B[0] = malloc(colA*colB*sizeof(int));
+for (int i = 1; i<colA; i++)
+{
+  B[i] = B[i-1] + colB;
+}
+
+C = malloc(linA*sizeof(int*));
+C[0] = malloc(linA*colB*sizeof(int));
+for (int i = 1; i<linA; i++)
+{
+  C[i] = C[i-1] + colB;
+}
+
+printf("\nDigite 6 números que corresponderão ao valor da matriz A:\n");
+for (int lin = 0; lin<linA; lin++)
+{
+  for (int col =0; col<colA; col++)
+  {
+    scanf("%d", &A[lin][col]);
+  }
+}
+
+printf("\nDigite 6 números que corresponderão ao valor da matriz B:\n");
+for (int lin = 0; lin<colA; lin++)
+{
+  for (int col =0; col<colB; col++)
+  {
+    scanf("%d", &B[lin][col]);
+  }
+}
+system("clear"); 
+printf("Valor da matriz A:\n");
+for (int lin = 0; lin<linA; lin++)
+{
+  for (int col =0; col<colA; col++)
+  {
+    printf("Matriz A[%d][%d] = %d\n", lin+1,col+1,A[lin][col]);
+  }
+}
+
+printf("\nValor da matriz B:\n");
+for (int lin = 0; lin<colA; lin++)
+{
+  for (int col =0; col<colB; col++)
+  {
+    printf("Matriz B[%d][%d] = %d\n", lin+1,col+1,B[lin][col]);
+  }
+}
+multimatriz(A, B, C, linA, colA, colB);
+printf("\nValor da matriz C:\n");
+for (int lin = 0; lin<linA; lin++)
+{
+  for (int col =0; col<colB; col++)
+  {
+    printf("Matriz C[%d][%d] = %d\n", lin+1,col+1,C[lin][col]);
+  }
+}
+
+free(C[0]);
+free(C);
+free(B[0]);
+free(B);
+free(A[0]);
+free(A);
+  return 0;
+}
